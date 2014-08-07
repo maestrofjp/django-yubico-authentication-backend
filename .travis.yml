@@ -7,8 +7,8 @@ python:
 install:
  - pip install -r requirements-travis.txt
 
-script: 
-  - flake8 django_yubico/
+script:
+  - flake8 django_yubico/ --max-line-length=119
 
 notifications:
   email:

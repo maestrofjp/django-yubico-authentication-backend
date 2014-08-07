@@ -1,5 +1,10 @@
+from django.conf import settings
 from django.db import models
-from django.contrib.auth.models import User
+
+try:
+    User = settings.AUTH_USER_MODEL
+except AttributeError:
+    from django.contrib.auth.models import User
 
 
 class YubicoKey(models.Model):

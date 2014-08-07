@@ -6,10 +6,10 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-
 from django.views.decorators.cache import never_cache
 
 from forms import LoginForm, PasswordForm
+
 
 # Ask for the user password after the token
 YUBIKEY_USE_PASSWORD = getattr(settings, 'YUBICO_USE_PASSWORD', True)
@@ -105,7 +105,7 @@ def password(request, template_name='django_yubico/password.html',
             request.session[YUBIKEY_SESSION_ATTEMPT_COUNTER] += 1
 
             if request.session[YUBIKEY_SESSION_ATTEMPT_COUNTER] > \
-               YUBIKEY_PASSWORD_ATTEMPTS:
+                    YUBIKEY_PASSWORD_ATTEMPTS:
                 # Maximum number of attemps has been reached. Require user to
                 # start from scratch.
                 reset_user_session(session=request.session)

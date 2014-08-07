@@ -75,7 +75,7 @@ class PasswordForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs['user']
-        del(kwargs['user'])
+        del (kwargs['user'])
         super(PasswordForm, self).__init__(*args, **kwargs)
 
     def clean_password(self):
